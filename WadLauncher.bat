@@ -27,5 +27,8 @@ echo ----------------------------------------------------------------------
 	set /p input=Enter your choice here (Enter file name with extension) : 
 
 REM Si le dossier entré par l'utilisateur est valide, exécuter l'installeur
-	if exist %input% (start ../../gzdoom.exe -iwad %iwad% -file %input%) else (goto waderror)
-	exit
+	if exist %input%.wad (
+		start ../../gzdoom.exe -iwad %iwad% -file %input%
+	) else (goto waderror)
+	REM if exist %input%.wad OR %input%.pk3 (start ../../gzdoom.exe -iwad %iwad% -file %input%) else (goto waderror)
+	exit /b
