@@ -10,16 +10,16 @@ echo ----------------------------------------------------------------------
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwaderror
 echo Which iwad do you want to use?
-	dir wad /b	
+	dir wad /b	doom*
 set /p iwad=Enter your choice here : 
 	if exist wad\%iwad% (cd wad\%iwad%) else goto iwaderror
 	
-REM Affichage des mods disponibles
+REM Affichage des mods disponibles (liste les fichiers .pk3 et .wad)
 :waderror
 cls
 echo ----------------------------------------------------------------------
 echo Here are the wads available : 
-	dir /b
+	dir /b *.wad *.pk3
 
 REM Demander à l'utilisateur d'entrer le programme qu'il veut installer
 echo ----------------------------------------------------------------------
