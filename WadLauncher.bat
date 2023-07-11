@@ -5,18 +5,27 @@ title Doom mod launcher
 echo ----------------------------------------------------------------------
 echo Zarex's Doom mod launcher
 echo ----------------------------------------------------------------------
+pause
 
+if defined DoomExec goto iwadchoice
+
+cls
+echo ----------------------------------------------------------------------
+echo Checking the presence of gzdoom... This may take a few minutes
+echo ----------------------------------------------------------------------
+
+FOR /F %%I IN (where /r c:\ gzdoom.exe) DO @setx "DoomExec=%%I"
 
 REM Demander à l'utilisateur d'entrer un IWAD
-:iwaderror
+:iwadchoice
 echo Which iwad do you want to use?
 	dir /b doom*
 	echo common
 set /p iwad=Enter your choice here : 
-	if exist wad\%iwad% (cd wad\%iwad%) else goto iwaderror
+	if exist wad\%iwad% (cd wad\%iwad%) else goto iwadchoice
 	
 REM Affichage des mods disponibles (liste les fichiers .pk3 et .wad)
-:waderror
+:wadchoice
 cls
 echo ----------------------------------------------------------------------
 echo Here are the wads available : 
@@ -29,7 +38,7 @@ echo ----------------------------------------------------------------------
 REM Si le dossier entré par l'utilisateur est valide, exécuter l'installeur
 if exist %input%.wad set file=%input%.wad
 if exist %input%.pk3 set file=%input%.pk3
-	if not defined file (goto waderror) else (start ../../gzdoom.exe -iwad %iwad% -file %input%)
+	if not defined file (goto wadchoice) else (start ../../gzdoom.exe -iwad %iwad% -file %input%)
 REM if exist %file% (
 REM		start ../../gzdoom.exe -iwad %iwad% -file %input%
 REM	) else (goto waderror)
