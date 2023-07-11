@@ -29,7 +29,7 @@ echo ----------------------------------------------------------------------
 REM Si le dossier entré par l'utilisateur est valide, exécuter l'installeur
 if exist %input%.wad set file=%input%.wad
 if exist %input%.pk3 set file=%input%.pk3
-	if not defined file (goto waderror) else (start ../../gzdoom.exe -iwad %iwad% -file %input%)
+	if not defined file (goto waderror) else (start ../../gzdoom.exe -iwad %iwad% -file %file%)
 REM if exist %file% (
 REM		start ../../gzdoom.exe -iwad %iwad% -file %input%
 REM	) else (goto waderror)
