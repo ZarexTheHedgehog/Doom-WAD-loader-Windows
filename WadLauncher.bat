@@ -10,11 +10,22 @@ pause
 if defined DoomExec goto iwadchoice
 
 cls
-echo ----------------------------------------------------------------------
-echo Checking the presence of gzdoom... This may take a few minutes
-echo ----------------------------------------------------------------------
 
-FOR /F %%I IN (where /r c:\ gzdoom.exe) DO @setx "DoomExec=%%I"
+REM Demander à l'utilisateur le chemin pour le dossier dans lequel doom se situe pour créer l'arborescence de dossiers et créer la variable d'environnement afin de se rappeler de la décision
+set /p DoomPath=Please locate the path of the doom folder (Ex C:\Doom), so that the program will create the folder tree structure : 
+setx DoomExec=%DoomPath%
+echo 
+
+REM Créer l'arborescence de dossiers
+cd %DoomExec%
+mkdir Wad
+mkdir Wad\Common
+mkdir Wad\Documentation
+
+REM Demander à l'utilisateur quels IWADS sont disponibles sur le système pour créer les dossiers nécessaires pour les IWADS
+echo Which IWADS are available on your system?
+set /p AvailableIWADS=Enter it here : 
+for %i in (%AvailableIWADS%) do mkdir Wad\%i
 
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwadchoice
@@ -39,8 +50,4 @@ REM Si le dossier entré par l'utilisateur est valide, exécuter l'installeur
 if exist %input%.wad set file=%input%.wad
 if exist %input%.pk3 set file=%input%.pk3
 	if not defined file (goto wadchoice) else (start ../../gzdoom.exe -iwad %iwad% -file %input%)
-REM if exist %file% (
-REM		start ../../gzdoom.exe -iwad %iwad% -file %input%
-REM	) else (goto waderror)
-	REM if exist %input%.wad OR %input%.pk3 (start ../../gzdoom.exe -iwad %iwad% -file %input%) else (goto waderror)
 	exit /b
