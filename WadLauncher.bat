@@ -13,7 +13,7 @@ cls
 
 REM Demander à l'utilisateur le chemin pour le dossier dans lequel doom se situe pour créer l'arborescence de dossiers et créer la variable d'environnement afin de se rappeler de la décision
 set /p DoomPath=Please locate the path of the doom folder (Ex C:\Doom), so that the program will create the folder tree structure : 
-setx DoomExec=%DoomPath%
+setx DoomExec %DoomPath%
 echo 
 
 REM Créer l'arborescence de dossiers
