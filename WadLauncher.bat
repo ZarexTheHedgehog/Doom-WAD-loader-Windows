@@ -26,7 +26,7 @@ mkdir Wad\Documentation
 REM Demander à l'utilisateur quels IWADS sont disponibles sur le système pour créer les dossiers nécessaires pour les IWADS
 echo Which IWADS are available on your system?
 set /p AvailableIWADS=Enter it here : 
-for %i in (%AvailableIWADS%) do mkdir Wad\%i
+for %%i in (%AvailableIWADS%) do mkdir Wad\%%i
 
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwadchoice
