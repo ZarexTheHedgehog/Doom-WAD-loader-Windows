@@ -31,7 +31,7 @@ for %%i in (%AvailableIWADS%) do mkdir Wad\%%i
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwadchoice
 echo Which iwad do you want to use?
-	dir /b doom*
+	dir /b *doom*.wad plutonia.wad tnt.wad
 	echo common
 set /p iwad=Enter your choice here : 
 	if exist wad\%iwad% (cd wad\%iwad%) else goto iwadchoice
