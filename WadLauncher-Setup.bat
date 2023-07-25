@@ -12,16 +12,15 @@ set /p DoomPath=Please locate the path of the doom folder (Ex C:\Doom), so that 
 echo The path has been located and the file system will be created...
 pause
 
-REM Créer l'arborescence de dossiers
-cd %DoomPath%
-mkdir Wad
-mkdir Wad\Common
-mkdir Wad\Documentation
+
+mkdir %DoomPath%\Wad
+mkdir %DoomPath%\Wad\Common
+mkdir %DoomPath%\Wad\Documentation
 
 REM Demander à l'utilisateur quels IWADS sont disponibles sur le système pour créer les dossiers nécessaires pour les IWADS
 echo Which IWADS are available on your system?
 set /p AvailableIWADS=Enter them here : 
-for %%i in (%AvailableIWADS%) do mkdir Wad\%%i
+for %%i in (%AvailableIWADS%) do mkdir %DoomPath%\Wad\%%i
 
 move WadLauncher.bat %DoomPath%\WadLauncher.bat
 
