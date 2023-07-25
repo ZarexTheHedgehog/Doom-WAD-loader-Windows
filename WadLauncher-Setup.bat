@@ -25,9 +25,9 @@ for %%i in (%AvailableIWADS%) do mkdir %DoomPath%\Wad\%%i
 move WadLauncher.bat %DoomPath%\WadLauncher.bat
 
 set /p Confirm=Do you want to create a shortcut on your desktop? (Y/N) : 
-if (%Confirm%=Y) ( mklink %Userprofile%\Desktop\WadLauncher %DoomPath%\WadLauncher.bat )
+if (%Confirm% ==Y) ( mklink %Userprofile%\Desktop\WadLauncher %DoomPath%\WadLauncher.bat )
 pause
 
 set /p Confirm=Do you want to start the newly installed program? (Y/N) : 
-if (%Confirm%=Y) ( call %DoomPath%\WadLauncher.bat )
+if (%Confirm%==Y) ( call %DoomPath%\WadLauncher.bat )
 pause
