@@ -22,7 +22,7 @@ echo Which IWADS are available on your system?
 set /p AvailableIWADS=Enter them here : 
 for %%i in (%AvailableIWADS%) do mkdir %DoomPath%\Wad\%%i
 
-copy WadLauncher.bat %DoomPath%\WadLauncher.bat
+mv %Userprofile%\Downloads\WadLauncher.bat %DoomPath%\WadLauncher.bat
 del /Q WadLauncher.bat
 
 set /p Confirm=Do you want to create a shortcut on your desktop? (Y/N) : 
