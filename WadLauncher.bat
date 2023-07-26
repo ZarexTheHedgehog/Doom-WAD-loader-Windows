@@ -10,7 +10,9 @@ pause
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwadchoice
 echo Which iwad do you want to use?
-	dir /b *doom*.wad plutonia.wad tnt.wad
+	dir /b *doom*.wad
+	dir /b plutonia.wad
+	dir /b tnt.wad
 	echo common
 set /p iwad=Enter your choice here : 
 	if exist wad\%iwad% (cd wad\%iwad%) else goto iwadchoice
