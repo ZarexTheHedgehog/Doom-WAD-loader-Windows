@@ -22,7 +22,7 @@ echo Which IWADS are available on your system?
 set /p AvailableIWADS=Enter them here : 
 for %%i in (%AvailableIWADS%) do mkdir %DoomPath%\Wad\%%i
 
-mv %Userprofile%\Downloads\WadLauncher.bat %DoomPath%\WadLauncher.bat
+move %Userprofile%\Downloads\WadLauncher.bat %DoomPath%\WadLauncher.bat
 
 set /p Confirm=Do you want to create a shortcut on your desktop? (Y/N) : 
 if %Confirm% ==Y ( mklink %Userprofile%\Desktop\WadLauncher %DoomPath%\WadLauncher.bat )
