@@ -10,9 +10,9 @@ pause
 REM Demander à l'utilisateur d'entrer un IWAD
 :iwadchoice
 echo Which iwad do you want to use?
-	dir /b *doom*.wad
-	dir /b plutonia.wad
-	dir /b tnt.wad
+	if exists *doom*.wad (dir /b *doom*.wad)
+	if exists plutonia.wad (dir /b plutonia.wad)
+	if exists tnt.wad (dir /b tnt.wad)
 	echo common
 set /p iwad=Enter your choice here : 
 	if exist wad\%iwad% (cd wad\%iwad%) else goto iwadchoice
@@ -26,10 +26,8 @@ echo Here are the wads available :
 
 REM Demander à l'utilisateur d'entrer le programme qu'il veut installer
 echo ----------------------------------------------------------------------
-	set /p input=Enter your choice here (Enter file name with extension) : 
+	set /p input=Enter your choice here (Enter file name with extension, separated with spaces) : 
 
 REM Si le dossier entré par l'utilisateur est valide, exécuter l'installeur
-if exist %input%.wad set file=%input%.wad
-if exist %input%.pk3 set file=%input%.pk3
-	if not defined file (goto wadchoice) else (start ../../gzdoom.exe -iwad %iwad% -file %input%)
-	exit /b
+start ../../gzdoom.exe -iwad %iwad% -file %input%
+exit /b
