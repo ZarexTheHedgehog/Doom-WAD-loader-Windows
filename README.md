@@ -35,3 +35,5 @@ First, the launcher will list the available IWADS and prompt you to select an IW
 After selecting the IWADS, the launcher will list the available mods for this IWAD and prompt you to select a mod in the list.
 
 Then, it will launch the launcher and you're done!
+
+### If there are any errors, bugs or important questions, tell me and I'll add them in the documentation, answer your questions and if possible, I'll correct the bugs!
