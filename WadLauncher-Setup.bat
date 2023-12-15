@@ -19,7 +19,7 @@ mkdir %DoomPath%\Wad\Documentation
 REM Demander à l'utilisateur quels IWADS sont disponibles sur le système pour créer les dossiers nécessaires pour les IWADS
 echo Which IWADS are available on your system?
 set /p AvailableIWADS=Enter them here : 
-for %%i in (%AvailableIWADS%) do if exists %%i.wad (mkdir %DoomPath%\Wad\%%i) else (echo Non-existent WAD. The folder for it will not be created) 
+for %%i in (%AvailableIWADS%) do if exist %%i.wad (mkdir %DoomPath%\Wad\%%i) else (echo "Non-existent WAD. The folder for it will not be created")
 
 move %Userprofile%\Downloads\WadLauncher.bat %DoomPath%\WadLauncher.bat
 
