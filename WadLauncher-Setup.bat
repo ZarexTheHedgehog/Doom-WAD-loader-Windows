@@ -23,11 +23,11 @@ for %%i in (%AvailableIWADS%) do if exist %DoomPath%\%%i.wad (mkdir %DoomPath%\W
 
 move %Userprofile%\Downloads\WadLauncher.bat %DoomPath%\WadLauncher.bat
 
-set /p Confirm=Do you want to create a shortcut on your desktop? (Y/N) : 
-if %Confirm%==Y (mklink %Userprofile%\Desktop\WadLauncher %DoomPath%\WadLauncher.bat)
-if %Confirm%==Y (echo The shortcut has been created on the desktop)
-if %Confirm%==N (echo The shortcut hasn't been created on the desktop)
-pause
+REM set /p Confirm=Do you want to create a shortcut on your desktop? (Y/N) : 
+REM if %Confirm%==Y (mklink %Userprofile%\Desktop\WadLauncher %DoomPath%\WadLauncher.bat)
+REM if %Confirm%==Y (echo The shortcut has been created on the desktop)
+REM if %Confirm%==N (echo The shortcut hasn't been created on the desktop)
+REM pause
 
 set /p Confirm=Do you want to start the newly installed program? (Y/N) : 
 if %Confirm%==Y ( call %DoomPath%\WadLauncher.bat )
